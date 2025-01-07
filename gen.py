@@ -526,7 +526,7 @@ class BindingGenerator:
       if ch.kind == CK.ENUM_CONSTANT_DECL:
         value = ''
         for ca in ch.get_children():
-          if ca.kind == CK.UNEXPOSED_EXPR:
+          if ca.kind == CK.UNEXPOSED_EXPR or ca.kind == CK.BINARY_OPERATOR:
             value = ' = ' + getContent(ca, False)
             break
         constants.append('  ' + ch.spelling + value)
